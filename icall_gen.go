@@ -25,7 +25,7 @@ var (
 	check_max_index = true
 )
 
-func icall(t int, i int, ptrto bool, output bool) interface{} {
+func icall(t int, i int, max int, ptrto bool, output bool) interface{} {
 	if t >= max_itype_index {
 		if check_max_itype {
 			check_max_itype = false
@@ -55,7 +55,7 @@ var templ_fn = `	func(p, a unsafeptr) { i_x($itype, $index, p, unsafeptr(&a), $p
 `
 
 func main() {
-	writeFile("./icall.go", 10, 256)
+	writeFile("./icall.go", 8, 256)
 }
 
 func writeFile(filename string, max_itype int, max_index int) {

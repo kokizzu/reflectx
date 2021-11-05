@@ -1,3 +1,4 @@
+//go:build ignore
 // +build ignore
 
 package main
@@ -24,7 +25,7 @@ var (
 	check_max_index = true
 )
 
-func icall(t int, i int, ptrto bool, output bool) interface{} {
+func icall(t int, i int, max int, ptrto bool, output bool) interface{} {
 	if t >= max_itype_index {
 		if check_max_itype {
 			check_max_itype = false
@@ -62,7 +63,7 @@ var templ_fn_output = `	func(p unsafeptr, a iparam) iparam { return i_y($itype, 
 `
 
 func main() {
-	writeFile("./icall_go117.go", 128, 128)
+	writeFile("./icall_go117.go", 64, 256)
 }
 
 func writeFile(filename string, max_itype int, max_index int) {
